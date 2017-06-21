@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="ssl,apache," />
 
 
 
@@ -93,16 +93,17 @@
 
 
 
-<meta name="description" content="1.64bit的系统，VirtualBox无法显示64bit的安装环境.打开BIOS的cpu虚拟化支持选项。 2.VirtualBox安装增强功能(可以支持分辨率调节、共享文件夹、共享剪贴板等功能）①VirtualBox:[设备]-&amp;gt;[安装增强功能]②mkdir /mnt/cdrom③mount /dev/cdrom /mount/cdrom④cp /mount/cdrom/VBoxLinu">
+<meta name="description" content="1.确认apache的ssl模块是否安装检查apache的模块路径下是否有mod_ssl.so文件。如/usr/lib/apache2/modules/mod_ssl.so。 正常apt-get安装的版本会有此模块，源代码编译版本需要在编译时添加参数–enable-ssl=shared –with-ssl=/usr/local/openssl 2.启用ssl模块进入apache的配置目录，默认安装">
+<meta name="keywords" content="ssl,apache">
 <meta property="og:type" content="article">
-<meta property="og:title" content="重装虚拟机后遇到的问题">
-<meta property="og:url" content="http://yoursite.com/2017/06/15/reinstall-virtual-machine/index.html">
+<meta property="og:title" content="apache支持SSL">
+<meta property="og:url" content="http://yoursite.com/2017/06/22/enable-ssl-in-apache/index.html">
 <meta property="og:site_name" content="Gaiych&#39;s Blog">
-<meta property="og:description" content="1.64bit的系统，VirtualBox无法显示64bit的安装环境.打开BIOS的cpu虚拟化支持选项。 2.VirtualBox安装增强功能(可以支持分辨率调节、共享文件夹、共享剪贴板等功能）①VirtualBox:[设备]-&amp;gt;[安装增强功能]②mkdir /mnt/cdrom③mount /dev/cdrom /mount/cdrom④cp /mount/cdrom/VBoxLinu">
-<meta property="og:updated_time" content="2017-06-21T16:46:08.048Z">
+<meta property="og:description" content="1.确认apache的ssl模块是否安装检查apache的模块路径下是否有mod_ssl.so文件。如/usr/lib/apache2/modules/mod_ssl.so。 正常apt-get安装的版本会有此模块，源代码编译版本需要在编译时添加参数–enable-ssl=shared –with-ssl=/usr/local/openssl 2.启用ssl模块进入apache的配置目录，默认安装">
+<meta property="og:updated_time" content="2017-06-21T18:47:44.227Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="重装虚拟机后遇到的问题">
-<meta name="twitter:description" content="1.64bit的系统，VirtualBox无法显示64bit的安装环境.打开BIOS的cpu虚拟化支持选项。 2.VirtualBox安装增强功能(可以支持分辨率调节、共享文件夹、共享剪贴板等功能）①VirtualBox:[设备]-&amp;gt;[安装增强功能]②mkdir /mnt/cdrom③mount /dev/cdrom /mount/cdrom④cp /mount/cdrom/VBoxLinu">
+<meta name="twitter:title" content="apache支持SSL">
+<meta name="twitter:description" content="1.确认apache的ssl模块是否安装检查apache的模块路径下是否有mod_ssl.so文件。如/usr/lib/apache2/modules/mod_ssl.so。 正常apt-get安装的版本会有此模块，源代码编译版本需要在编译时添加参数–enable-ssl=shared –with-ssl=/usr/local/openssl 2.启用ssl模块进入apache的配置目录，默认安装">
 
 
 
@@ -130,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/06/15/reinstall-virtual-machine/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/22/enable-ssl-in-apache/"/>
 
 
 
 
 
-  <title>重装虚拟机后遇到的问题 | Gaiych's Blog</title>
+  <title>apache支持SSL | Gaiych's Blog</title>
   
 
 
@@ -275,7 +276,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/15/reinstall-virtual-machine/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/22/enable-ssl-in-apache/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gaiych">
@@ -292,7 +293,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">重装虚拟机后遇到的问题</h1>
+          <h1 class="post-title" itemprop="name headline">apache支持SSL</h1>
         
 
         <div class="post-meta">
@@ -304,8 +305,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-15T23:21:31+08:00">
-                2017-06-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-22T02:43:42+08:00">
+                2017-06-22
               </time>
             
 
@@ -327,8 +328,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/other/" itemprop="url" rel="index">
-                    <span itemprop="name">other</span>
+                  <a href="/categories/server/" itemprop="url" rel="index">
+                    <span itemprop="name">server</span>
                   </a>
                 </span>
 
@@ -344,7 +345,7 @@
 
           
           
-             <span id="/2017/06/15/reinstall-virtual-machine/" class="leancloud_visitors" data-flag-title="重装虚拟机后遇到的问题">
+             <span id="/2017/06/22/enable-ssl-in-apache/" class="leancloud_visitors" data-flag-title="apache支持SSL">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -372,18 +373,17 @@
       
 
       
-        <h3 id="1-64bit的系统，VirtualBox无法显示64bit的安装环境"><a href="#1-64bit的系统，VirtualBox无法显示64bit的安装环境" class="headerlink" title="1.64bit的系统，VirtualBox无法显示64bit的安装环境."></a>1.64bit的系统，VirtualBox无法显示64bit的安装环境.</h3><p>打开BIOS的cpu虚拟化支持选项。</p>
-<h3 id="2-VirtualBox安装增强功能-可以支持分辨率调节、共享文件夹、共享剪贴板等功能）"><a href="#2-VirtualBox安装增强功能-可以支持分辨率调节、共享文件夹、共享剪贴板等功能）" class="headerlink" title="2.VirtualBox安装增强功能(可以支持分辨率调节、共享文件夹、共享剪贴板等功能）"></a>2.VirtualBox安装增强功能(可以支持分辨率调节、共享文件夹、共享剪贴板等功能）</h3><p>①VirtualBox:[设备]-&gt;[安装增强功能]<br>②mkdir /mnt/cdrom<br>③mount /dev/cdrom /mount/cdrom<br>④cp /mount/cdrom/VBoxLinuxAdditions.run /tmp<br>⑤cd /tmp; ./VBoxLinuxAdditions.run<br>⑥重启系统：shutdown -r now</p>
-<h3 id="3-Ctrl-Alt-t-打开一个-Terminal"><a href="#3-Ctrl-Alt-t-打开一个-Terminal" class="headerlink" title="3.Ctrl + Alt + t 打开一个 Terminal"></a>3.Ctrl + Alt + t 打开一个 Terminal</h3><p>①桌面右上角用户名-&gt;[System Settings]-&gt;[Keyboard]<br>②选择[Shortcuts] tab，左边列表选择最下面的[Custom Shortcuts]。<br>③右边内容窗口点【+】,弹窗中Name填写Terminal，Command填写gnome-terminal，点Apply确定。<br>④右边内容窗口上面出现Terminal这一项，点击右边<strong>“disable”字样（一定要点右边，点其他位置效果不同）</strong>选择该项，同时按下Ctrl + Alt + t。</p>
-<h3 id="4-设置桌面背景和字体颜色"><a href="#4-设置桌面背景和字体颜色" class="headerlink" title="4.设置桌面背景和字体颜色"></a>4.设置桌面背景和字体颜色</h3><p>①打开一个终端，选择[Edit]-&gt;[Profile Preferences]。<br>②选择[Colors]tab，取消勾选的[Use colors from system theme],Background color选黑色，Text color自定义颜色#A6DEBC。</p>
-<h3 id="5-网络连接不可用"><a href="#5-网络连接不可用" class="headerlink" title="5.网络连接不可用"></a>5.网络连接不可用</h3><p>①设置正确的网络参数（IP、netmask、gateway）<br>②设置网卡为桥接模式。  </p>
-<h3 id="6-apt-get-install-vim不成功"><a href="#6-apt-get-install-vim不成功" class="headerlink" title="6.apt-get install vim不成功"></a>6.apt-get install vim不成功</h3><p>①设置正确的源（/etc/apt/sources.list)<br>②vim依赖vim-common，但是本机已经安装的vim-common版本不对。所以，卸载vim-common后再装vim就好了。</p>
-<h3 id="7-安装ssh进行远程连接"><a href="#7-安装ssh进行远程连接" class="headerlink" title="7.安装ssh进行远程连接"></a>7.安装ssh进行远程连接</h3><p>apt-get install ssh</p>
-<h3 id="8-没有中文输入法"><a href="#8-没有中文输入法" class="headerlink" title="8.没有中文输入法"></a>8.没有中文输入法</h3><p>apt-get install fcitx-pinyin<br>重登登录账户，按Ctrl+Space切换输入法</p>
-<h3 id="9-中文显示为方块形的乱码"><a href="#9-中文显示为方块形的乱码" class="headerlink" title="9.中文显示为方块形的乱码"></a>9.中文显示为方块形的乱码</h3><p>①aptitude install locales  #如果没安装locales，先安装一下。<br>②dpkg-reconfigure locales  #重新配置locales  </p>
-<p>选择需要的locale：(按空格选择，选择完了按ENTER确认)<br>en_US.UTF8<br>zh_CN GB2312<br>zh_CN GBK GBK<br>zh_CN UTF-8 UTF-8    </p>
-<p>查看一下/etc/default/locale，如果LANG=en_US.UTF-8则不用修改</p>
-<p>③如果还显示乱码，则需要安装字体：<br>apt-get install ttf-arphic-uming<br>apt-get install ttf-wqy-zenhei  </p>
+        <h3 id="1-确认apache的ssl模块是否安装"><a href="#1-确认apache的ssl模块是否安装" class="headerlink" title="1.确认apache的ssl模块是否安装"></a>1.确认apache的ssl模块是否安装</h3><p>检查apache的模块路径下是否有mod_ssl.so文件。<br>如/usr/lib/apache2/modules/mod_ssl.so。</p>
+<p>正常apt-get安装的版本会有此模块，<br>源代码编译版本需要在编译时添加参数–enable-ssl=shared –with-ssl=/usr/local/openssl</p>
+<h3 id="2-启用ssl模块"><a href="#2-启用ssl模块" class="headerlink" title="2.启用ssl模块"></a>2.启用ssl模块</h3><p>进入apache的配置目录，默认安装在/etc/apache2</p>
+<p>mods-available里面是所有可用的模块，每个模块有后缀名为load和conf的两个文件。<br>mods-enabled里为当前启用的模块，其实里面就是建立了指向mods-available对应模块文件的软链接。</p>
+<p>如果mods-enabled中有ssl.conf和ssl.load，则已经启用了ssl模块。<br>如果没有则执行a2enmod ssl启用ssl模块。</p>
+<h3 id="3-启用ssl-site"><a href="#3-启用ssl-site" class="headerlink" title="3.启用ssl site"></a>3.启用ssl site</h3><p>apache可以同时支持多个site，sites-available和sites-enabled的组织方式同mods一样。<br>如果sites-enabled里有default-ssl文件，则支持ssl的site已经启用。<br>如果没有，则执行a2ensite default-ssl启用默认的ssl site配置文件。</p>
+<p>关闭某site的命令为a2dissite site名称。</p>
+<h3 id="4-apache2端口文件说明"><a href="#4-apache2端口文件说明" class="headerlink" title="4.apache2端口文件说明"></a>4.apache2端口文件说明</h3><p>ports.conf为apache的端口相关文件。<br>NameVirtualHost对应sites-available中的site。<br>Listen为该站点监听哪个端口。</p>
+<h3 id="5-生成自己的密钥和证书文件"><a href="#5-生成自己的密钥和证书文件" class="headerlink" title="5.生成自己的密钥和证书文件"></a>5.生成自己的密钥和证书文件</h3><p>①生成私钥文件（秘钥长度为1024bits）<br>oopenssl genrsa 1024 &gt; server.key<br>②生成请求证书文件<br>openssl req -new -key server.key &gt; server.csr<br>请求证书文件是提供给CA机构进行认证的文件，如果不需要CA认证，用③中命令进行自认证即可。<br>③openssl req -x509 -days 365 -key server.key -in server.csr &gt; server.crt<br>-x509 进行自认证<br>-days 证书有效期限</p>
+<h3 id="6-使用自己生成的证书文件"><a href="#6-使用自己生成的证书文件" class="headerlink" title="6.使用自己生成的证书文件"></a>6.使用自己生成的证书文件</h3><p>编辑使用ssl的site的配置文件，我这里用的是默认的/etc/apache2/sites-enabled/default-ssl<br>①启用ssl engine（ssl site中默认是启用的）<br>SSLEngine on<br>②使用生5中生成的文件<br>SSLCertificateFile    /etc/ssl/certs/server.crt<br>SSLCertificateKeyFile /etc/ssl/private/server.key</p>
+<h3 id="7-重新启动apache"><a href="#7-重新启动apache" class="headerlink" title="7.重新启动apache"></a>7.重新启动apache</h3><p>service apache2 restart</p>
 
       
     </div>
@@ -411,6 +411,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/ssl/" rel="tag"># ssl</a>
+          
+            <a href="/tags/apache/" rel="tag"># apache</a>
+          
+        </div>
+      
 
       
       
@@ -420,15 +428,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/06/18/build-git-server/" rel="next" title="搭建git服务器">
+                <i class="fa fa-chevron-left"></i> 搭建git服务器
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/18/build-git-server/" rel="prev" title="搭建git服务器">
-                搭建git服务器 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -557,7 +565,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-64bit的系统，VirtualBox无法显示64bit的安装环境"><span class="nav-number">1.</span> <span class="nav-text">1.64bit的系统，VirtualBox无法显示64bit的安装环境.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-VirtualBox安装增强功能-可以支持分辨率调节、共享文件夹、共享剪贴板等功能）"><span class="nav-number">2.</span> <span class="nav-text">2.VirtualBox安装增强功能(可以支持分辨率调节、共享文件夹、共享剪贴板等功能）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Ctrl-Alt-t-打开一个-Terminal"><span class="nav-number">3.</span> <span class="nav-text">3.Ctrl + Alt + t 打开一个 Terminal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-设置桌面背景和字体颜色"><span class="nav-number">4.</span> <span class="nav-text">4.设置桌面背景和字体颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-网络连接不可用"><span class="nav-number">5.</span> <span class="nav-text">5.网络连接不可用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-apt-get-install-vim不成功"><span class="nav-number">6.</span> <span class="nav-text">6.apt-get install vim不成功</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-安装ssh进行远程连接"><span class="nav-number">7.</span> <span class="nav-text">7.安装ssh进行远程连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-没有中文输入法"><span class="nav-number">8.</span> <span class="nav-text">8.没有中文输入法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-中文显示为方块形的乱码"><span class="nav-number">9.</span> <span class="nav-text">9.中文显示为方块形的乱码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-确认apache的ssl模块是否安装"><span class="nav-number">1.</span> <span class="nav-text">1.确认apache的ssl模块是否安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-启用ssl模块"><span class="nav-number">2.</span> <span class="nav-text">2.启用ssl模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-启用ssl-site"><span class="nav-number">3.</span> <span class="nav-text">3.启用ssl site</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-apache2端口文件说明"><span class="nav-number">4.</span> <span class="nav-text">4.apache2端口文件说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-生成自己的密钥和证书文件"><span class="nav-number">5.</span> <span class="nav-text">5.生成自己的密钥和证书文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-使用自己生成的证书文件"><span class="nav-number">6.</span> <span class="nav-text">6.使用自己生成的证书文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-重新启动apache"><span class="nav-number">7.</span> <span class="nav-text">7.重新启动apache</span></a></li></ol></div>
             
 
           </div>
