@@ -276,6 +276,174 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/30/go-study-note3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gaiych">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gaiych's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/30/go-study-note3/" itemprop="url">go学习笔记3-数据类型</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-30T22:47:53+08:00">
+                2017-06-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/go/" itemprop="url" rel="index">
+                    <span itemprop="name">go</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/06/30/go-study-note3/" class="leancloud_visitors" data-flag-title="go学习笔记3-数据类型">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="6-数据类型"><a href="#6-数据类型" class="headerlink" title="6 数据类型"></a>6 数据类型</h3><h4 id="6-1-bool"><a href="#6-1-bool" class="headerlink" title="6.1 bool"></a>6.1 bool</h4><p>值为true或false</p>
+<h4 id="6-2-int"><a href="#6-2-int" class="headerlink" title="6.2 int"></a>6.2 int</h4><p>和C/C++类似，<br>uint8、uint16、uint32、uint64分别是无符号的8位、16位、32位、64位，<br>int8、int16、int32、int64则是有符号的。<br>byte : 8位的数据<br>rune : int32<br>int : 看操作系统、32位或64位有符号<br>uint ：看操作系统、32位或64位有符号<br>uintptr : 用于存放指针</p>
+<h4 id="6-3-float"><a href="#6-3-float" class="headerlink" title="6.3 float"></a>6.3 float</h4><p>float32 ：IEEE-754 32位浮点型数<br>float64 ：IEEE-754 64位浮点型数<br>complex64 : 32位实数和32位虚数<br>complex128 : 64位实数和64位虚数</p>
+<h4 id="6-4-string"><a href="#6-4-string" class="headerlink" title="6.4 string"></a>6.4 string</h4><h4 id="6-5-指针"><a href="#6-5-指针" class="headerlink" title="6.5 指针"></a>6.5 指针</h4><p>概念和用法和C/C++中差不多。<br>不同点：</p>
+<ol>
+<li>go中空指针用nil表示。</li>
+<li>指针不能用来运算，即不能通过加减操作指向附近的地址。</li>
+<li>没有-&gt;这种语法，可以用*p表示指向的对象，或者直接用.访问结构体中的成员。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">type Point struct &#123;</div><div class="line">	x int</div><div class="line">	y int</div><div class="line">&#125;</div><div class="line"></div><div class="line">point := Point&#123;3, 5&#125;</div><div class="line">p := &amp;point</div><div class="line">// (*p).x 和p.x效果是一样的</div><div class="line">p.x = 7</div><div class="line">fmt.Println(point)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="6-6-数组"><a href="#6-6-数组" class="headerlink" title="6.6 数组"></a>6.6 数组</h4><ol>
+<li>作用和C/C++中的一样。<br>声明形式：var variable_name [SIZE] variable_type  </li>
+<li><p>初始化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var ages = [3]int&#123;18, 20, 30&#125;</div><div class="line"></div><div class="line">//不指定大小(要用三个点，不用三个点声明的是切片)</div><div class="line">var scores = [...]int&#123;60, 80, 75, 99&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>多维数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//声明</div><div class="line">var aaa [3][5] int</div><div class="line"></div><div class="line">//初始化</div><div class="line">xx = [3][5]int&#123;  </div><div class="line"> &#123;1, 2, 3, 4, 5&#125;,</div><div class="line"> &#123;11, 12, 13, 14, 15&#125;,</div><div class="line"> &#123;11, 22, 33, 44, 55&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="6-7-切片-slice"><a href="#6-7-切片-slice" class="headerlink" title="6.7 切片(slice)"></a>6.7 切片(slice)</h4><p>使用方法和python中切片差不多，用起来就是长度不定，可以增删的数组。<br>看初始化方法和使用方法，猜测内部实现是对数组进行了一些引用和组织，内部记录了在数组中起始和终止对应的index,长度不够时生成新的数组以此来扩充容量，类似于C++中的vector的实现。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">// 定义一个空的切片，语法和数组一样，只是不指定长度</div><div class="line">var slice [ ]int</div><div class="line"></div><div class="line">// 使用make()函数来创建切片,长度为10</div><div class="line">slice1 := make([]int, 10)</div><div class="line"></div><div class="line">// 也可以指定容量，为可选参数, 长度为5，容量为10，就是先申请出长度为10的空间</div><div class="line">slice2 := make([]int, 5, 10)</div><div class="line">// 初始化,获取2到4位置的数据，和python中一样，不写其他例子了</div><div class="line">array := []int&#123;1, 2, 3, 4, 5, 6, 7&#125;</div><div class="line">slice3 != array[2:5]</div><div class="line"></div><div class="line">// len()和cap()为获取切片长度和容量的函数，把切片当参数传入即可</div><div class="line">//空切片为nil</div><div class="line"></div><div class="line">// 用copy向切片中加元素</div><div class="line">var numbers []int</div><div class="line">numbers = append(numbers, 0)</div><div class="line">numbers = append(numbers, 3, 5, 7)</div><div class="line"></div><div class="line">// 拷贝 numbers 的内容到 numbers1</div><div class="line">numbers1 := make([]int, 5, 10)</div><div class="line">copy(numbers1,numbers)</div></pre></td></tr></table></figure></p>
+<h4 id="6-8-结构体"><a href="#6-8-结构体" class="headerlink" title="6.8 结构体"></a>6.8 结构体</h4><p>基本和C/C++中的一样，也支持方法。<br>不同点:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">type Point struct &#123;</div><div class="line">	x, y int</div><div class="line">&#125;</div><div class="line"></div><div class="line">var (</div><div class="line">    // 通过列出结构体中的值初始化一个结构体对象</div><div class="line">	p1 = Point(1,2)</div><div class="line">	// 只给出结构体中的某一些值</div><div class="line">	p2 = Point(y : 5)</div><div class="line">	// 值都为默认值</div><div class="line">	// 结构体不支持 p3 = Point()这样的初始化方式</div><div class="line">	p3 = Point&#123;&#125;</div><div class="line">	p  = &amp;Point&#123;1, 2&#125;</div><div class="line">)</div></pre></td></tr></table></figure></p>
+<h4 id="6-9-map"><a href="#6-9-map" class="headerlink" title="6.9 map"></a>6.9 map</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// 默认map是nil</div><div class="line">var human_ages map[string]int</div><div class="line"></div><div class="line">// 使用make函数</div><div class="line">human_tel := make(map[string]string)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// 遍历用for和range</div><div class="line">for key := range map_obj &#123;</div><div class="line">    fmt.Println(map1[key])</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 删除元素用delete</div><div class="line">delete(map_obj, key)</div><div class="line"></div><div class="line">// 查看元素在集合中是否存在,如果is_in为true则存在</div><div class="line">value, is_in := map_obj[key]</div></pre></td></tr></table></figure>
+<h4 id="6-10-range"><a href="#6-10-range" class="headerlink" title="6.10 range"></a>6.10 range</h4><p>和python的range类似，主要用在for语句中迭代数组、slice、map等。<br>数组和slice返回索引和对应的值，map返回key</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/28/go-study-note2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -448,7 +616,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/06/26/go-study-note1/" itemprop="url">go学习笔记1</a></h1>
+                <a class="post-title-link" href="/2017/06/26/go-study-note1/" itemprop="url">go学习笔记1-语法规则、包、函数</a></h1>
         
 
         <div class="post-meta">
@@ -500,7 +668,7 @@
 
           
           
-             <span id="/2017/06/26/go-study-note1/" class="leancloud_visitors" data-flag-title="go学习笔记1">
+             <span id="/2017/06/26/go-study-note1/" class="leancloud_visitors" data-flag-title="go学习笔记1-语法规则、包、函数">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1108,7 +1276,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
