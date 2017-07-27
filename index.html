@@ -276,6 +276,156 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/27/sudo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gaiych">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gaiych's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/27/sudo/" itemprop="url">sudo</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-27T22:44:10+08:00">
+                2017-07-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/07/27/sudo/" class="leancloud_visitors" data-flag-title="sudo">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>之前用的系统sudo一直是好用的，所以以为sudo是系统内置的命令。今天重装了一个比较干净的debian，发现使用sudo时提示“command not found”，才知道sudo也是一个后安装的工具。<br>所以，解决这个问题需要：<br>1.apt-get install sudo<br>2.安装好之后，用root权限修改文件／etc／suoders。<br>模仿root的权限给予自己的账户sudo的权限，如<code>gai    ALL=(ALL:ALL)ALL</code></p>
+<blockquote>
+<p>格式说明[用户名    网络中的主机=（执行命令的目标用户:执行命令的用户组）执行的命令范围<br>如果想了解更详细的权限控制，参看man sudoers</p>
+</blockquote>
+<h3 id="sudo的幕后过程"><a href="#sudo的幕后过程" class="headerlink" title="sudo的幕后过程"></a>sudo的幕后过程</h3><p>用sudo执行命令时，是在当前进程的基础上fork出一个子进程，这个子进程是以root权限执行的。<br>然后在子进程中，执行你在sudo后面跟的命令。</p>
+<h3 id="执行sudo-cd等命令时显示“command-not-found”的原因"><a href="#执行sudo-cd等命令时显示“command-not-found”的原因" class="headerlink" title="执行sudo cd等命令时显示“command not found”的原因"></a>执行sudo cd等命令时显示“command not found”的原因</h3><p>sudo后fork出了子进程，子进程无法获取父进程所在的目录，所以无法执行cd命令。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/30/go-study-note3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1276,7 +1426,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1287,7 +1437,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
